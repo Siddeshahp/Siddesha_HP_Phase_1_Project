@@ -9,7 +9,34 @@ import java.util.Scanner;
 
 public class project_phase1 
 {
-		File f1=new File("D:\\siddesha");
+		
+		File f1=new File("D:\\siddesha.txt");
+		File f2=new File("D:\\");
+		//Listing the Files in Ascending Order	
+		public void ascending()
+		{
+			
+			File f1=new File("D:\\");
+			
+			if(f1.isDirectory())
+			{
+				List<String> filelist=Arrays.asList(f1.list());
+				System.out.println("\n");
+				System.out.println("listing files in Ascending order:");
+				System.out.println("\n");
+				Collections.sort(filelist);
+				for(String s:filelist)
+				{
+					System.out.println(s);
+				}
+				
+			}
+			else
+			{
+				System.out.println("Directory not found!");
+			}
+			
+		}
 			
 		//Adding a File into Directory
 		public void newfile() throws IOException
@@ -79,6 +106,8 @@ public class project_phase1
 	{
 		char ch;
 		project_phase1 p1=new project_phase1();
+		p1.ascending();
+		System.out.println("\n");
 		do
 		{
 		System.out.println("enter your option:");
@@ -86,6 +115,7 @@ public class project_phase1
 		System.out.println("2.remove");
 		System.out.println("3.search");
 		System.out.println("4.exit");
+		System.out.println("\n");
 		
 		Scanner s1=new Scanner(System.in);
 		int option=s1.nextInt();
@@ -134,35 +164,9 @@ public class project_phase1
 			
 		}
 		
-		//Listing the Files in Ascending Order	
-		File f1=new File("D:\\");
 		
-		if(f1.isDirectory())
-		{
-			List<String> filelist=Arrays.asList(f1.list());
-			/*System.out.println("listing the files unsorted:");
-			System.out.println("\n");
-			for(String s:filelist)
-			{
-				System.out.println(s);
-				
-			}
-			System.out.println("---------------------------------");*/
-			System.out.println("\n");
-			System.out.println("listing files in sorted order:");
-			System.out.println("\n");
-			Collections.sort(filelist);
-			for(String s:filelist)
-			{
-				System.out.println(s);
-			}
-			
-		}
-		else
-		{
-			System.out.println("Directory not found!");
-		}
-		System.out.println("\nDo you want to continue enter 'Y' or discontinue enter 'N' \n");
+		System.out.println("\nDo you want to continue enter 'Y' or discontinue "
+				+ "enter 'N' \n");
         ch = s1.next().charAt(0);
 		}while(ch=='Y'||ch=='y');
 		
